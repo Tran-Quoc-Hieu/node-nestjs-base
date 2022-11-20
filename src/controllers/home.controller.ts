@@ -6,9 +6,13 @@ import { Controller, Get, Logger, Res } from "@nestjs/common";
 export class HomeController {
     constructor(private readonly appService: AppService) {}
 
-    @Get('home')
+    @Get()
     public async Home(@Res() response) {
         Logger.log(`get home`);
-        response.render('home', {title: 'HOME',});
+        response.render('home', 
+        {
+            title: 'HOME',
+            templatePath: 'HOME',
+        });
     }
 }

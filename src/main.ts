@@ -16,6 +16,7 @@ async function bootstrap() {
   app.set('views', viewPath);
   app.set('view engine', '.hbs');
 
+  app.useStaticAssets(join(__dirname, '..', 'public'), {prefix: '/public'});
   // listen
   let port = config.get('PORT');
   await app.listen(port, ()=> {
